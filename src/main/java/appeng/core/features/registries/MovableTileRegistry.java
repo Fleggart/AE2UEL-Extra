@@ -30,7 +30,6 @@ import appeng.api.exceptions.AppEngException;
 import appeng.api.movable.IMovableHandler;
 import appeng.api.movable.IMovableRegistry;
 import appeng.api.movable.IMovableTile;
-import appeng.spatial.DefaultSpatialHandler;
 
 public class MovableTileRegistry implements IMovableRegistry {
 
@@ -39,9 +38,31 @@ public class MovableTileRegistry implements IMovableRegistry {
     private final HashMap<Class<? extends TileEntity>, IMovableHandler> Valid = new HashMap<>();
     private final List<Class<? extends TileEntity>> test = new ArrayList<>();
     private final List<IMovableHandler> handlers = new ArrayList<>();
-    private final DefaultSpatialHandler dsh = new DefaultSpatialHandler();
 
-    private final IMovableHandler nullHandler = new DefaultSpatialHandler();
+    // Default handler that does nothing (equivalent to a no-op spatial handler)
+    private final IMovableHandler defaultHandler = new IMovableHandler() {
+        @Override
+        public boolean canHandle(Class<? extends TileEntity> myClass, TileEntity te) {
+            return true;
+        }
+
+        @Override
+        public void moveTile(TileEntity te) {
+            // No-op
+        }
+    };
+
+    private final IMovableHandler nullHandler = new IMovableHandler() {
+        @Override
+        public boolean canHandle(Class<? extends TileEntity> myClass, TileEntity te) {
+            return false;
+        }
+
+        @Override
+        public void moveTile(TileEntity te) {
+            // No-op
+        }
+    };
 
     @Override
     public void blacklistBlock(final Block blk) {
@@ -98,15 +119,15 @@ public class MovableTileRegistry implements IMovableRegistry {
 
         // if your movable our opted in
         if (te instanceof IMovableTile) {
-            this.Valid.put(myClass, this.dsh);
-            return this.dsh;
+            this.Valid.put(myClass, this.defaultHandler);
+            return this.defaultHandler;
         }
 
         // if you are on the white list your opted in.
         for (final Class<? extends TileEntity> testClass : this.test) {
             if (testClass.isAssignableFrom(myClass)) {
-                this.Valid.put(myClass, this.dsh);
-                return this.dsh;
+                this.Valid.put(myClass, this.defaultHandler);
+                return this.defaultHandler;
             }
         }
 
@@ -131,12 +152,12 @@ public class MovableTileRegistry implements IMovableRegistry {
     public IMovableHandler getHandler(final TileEntity te) {
         final Class myClass = te.getClass();
         final IMovableHandler h = this.Valid.get(myClass);
-        return h == null ? this.dsh : h;
+        return h == null ? this.defaultHandler : h;
     }
 
     @Override
     public IMovableHandler getDefaultHandler() {
-        return this.dsh;
+        return this.defaultHandler;
     }
 
     @Override

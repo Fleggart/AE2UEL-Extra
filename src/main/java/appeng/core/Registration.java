@@ -94,7 +94,6 @@ import appeng.core.localization.PlayerMessages;
 import appeng.core.stats.AdvancementTriggers;
 import appeng.core.stats.PartItemPredicate;
 import appeng.core.stats.Stats;
-import appeng.core.worlddata.SpatialDimensionManager;
 import appeng.fluids.registries.BasicFluidCellGuiHandler;
 import appeng.hooks.TickHandler;
 import appeng.hooks.WrenchClickHook;
@@ -108,16 +107,11 @@ import appeng.recipes.AERecipeLoader;
 import appeng.recipes.game.DisassembleRecipe;
 import appeng.recipes.game.FacadeRecipe;
 import appeng.recipes.ores.OreDictionaryHandler;
-import appeng.spatial.BiomeGenStorage;
-import appeng.spatial.StorageWorldProvider;
 import appeng.tile.AEBaseTile;
 import appeng.worldgen.MeteoriteWorldGen;
 import appeng.worldgen.QuartzWorldGen;
 
 final class Registration {
-    DimensionType storageDimensionType;
-    int storageDimensionID;
-    Biome storageBiome;
     AdvancementTriggers advancementTriggers;
 
     void preInitialize(final FMLPreInitializationEvent event) {
@@ -134,49 +128,6 @@ final class Registration {
         // Register
         definitions.getRegistry().getBootstrapComponents(IPreInitComponent.class)
                 .forEachRemaining(b -> b.preInitialize(event.getSide()));
-    }
-
-    private void registerSpatialBiome(IForgeRegistry<Biome> registry) {
-        if (!AEConfig.instance().isFeatureEnabled(AEFeature.SPATIAL_IO)) {
-            return;
-        }
-
-        if (this.storageBiome == null) {
-            this.storageBiome = new BiomeGenStorage();
-        }
-        registry.register(this.storageBiome.setRegistryName("appliedenergistics2:storage_biome"));
-    }
-
-    private void registerSpatialDimension() {
-        final AEConfig config = AEConfig.instance();
-        if (!config.isFeatureEnabled(AEFeature.SPATIAL_IO)) {
-            return;
-        }
-
-        if (config.getStorageProviderID() == -1) {
-            final Set<Integer> ids = new HashSet<>();
-            for (DimensionType type : DimensionType.values()) {
-                ids.add(type.getId());
-            }
-
-            int newId = -11;
-            while (ids.contains(newId)) {
-                --newId;
-            }
-            config.setStorageProviderID(newId);
-            config.save();
-        }
-
-        this.storageDimensionType = DimensionType.register("Storage Cell", "_cell", config.getStorageProviderID(),
-                StorageWorldProvider.class, true);
-
-        if (config.getStorageDimensionID() == -1) {
-            config.setStorageDimensionID(DimensionManager.getNextFreeDimId());
-            config.save();
-        }
-        this.storageDimensionID = config.getStorageDimensionID();
-
-        DimensionManager.registerDimension(this.storageDimensionID, this.storageDimensionType);
     }
 
     private void registerCraftHandlers(final IRecipeHandlerRegistry registry) {
@@ -231,8 +182,7 @@ final class Registration {
 
     @SubscribeEvent
     public void registerBiomes(RegistryEvent.Register<Biome> event) {
-        final IForgeRegistry<Biome> registry = event.getRegistry();
-        this.registerSpatialBiome(registry);
+        // Spatial biome registration removed
     }
 
     @SubscribeEvent
@@ -305,12 +255,7 @@ final class Registration {
 
     @SubscribeEvent
     public void attachSpatialDimensionManager(AttachCapabilitiesEvent<World> event) {
-        if (AEConfig.instance()
-                .isFeatureEnabled(AEFeature.SPATIAL_IO)
-                && event.getObject() == DimensionManager.getWorld(AEConfig.instance().getStorageDimensionID())) {
-            event.addCapability(new ResourceLocation("appliedenergistics2:spatial_dimension_manager"),
-                    new SpatialDimensionManager(event.getObject()));
-        }
+        // Spatial dimension manager registration removed
     }
 
     void postInit(final FMLPostInitializationEvent event) {
@@ -319,8 +264,6 @@ final class Registration {
         final IParts parts = definitions.parts();
         final IBlocks blocks = definitions.blocks();
         final IItems items = definitions.items();
-
-        this.registerSpatialDimension();
 
         // default settings..
         ((P2PTunnelRegistry) registries.p2pTunnel()).configure();
@@ -527,17 +470,8 @@ final class Registration {
         mr.whiteListTileEntity(AEBaseTile.class);
 
         /*
-         * world gen
+         * world gen - spatial dimension disabled, so no need to disable world gen for it
          */
-        for (final WorldGenType type : WorldGenType.values()) {
-            registries.worldgen().disableWorldGenForProviderID(type, StorageWorldProvider.class);
-
-            // nether
-            registries.worldgen().disableWorldGenForDimension(type, -1);
-
-            // end
-            registries.worldgen().disableWorldGenForDimension(type, 1);
-        }
 
         // whitelist from config
         for (final int dimension : AEConfig.instance().getMeteoriteDimensionWhitelist()) {

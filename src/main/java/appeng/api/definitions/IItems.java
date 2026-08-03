@@ -101,12 +101,6 @@ public interface IItems {
 
     IItemDefinition fluidCell64k();
 
-    IItemDefinition spatialCell2();
-
-    IItemDefinition spatialCell16();
-
-    IItemDefinition spatialCell128();
-
     IItemDefinition facade();
 
     IItemDefinition crystalSeed();

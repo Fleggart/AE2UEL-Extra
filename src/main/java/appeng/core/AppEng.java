@@ -113,15 +113,18 @@ public final class AppEng {
     }
 
     public Biome getStorageBiome() {
-        return this.registration.storageBiome;
+        // Spatial IO removed
+        return null;
     }
 
     public DimensionType getStorageDimensionType() {
-        return this.registration.storageDimensionType;
+        // Spatial IO removed
+        return null;
     }
 
     public int getStorageDimensionID() {
-        return this.registration.storageDimensionID;
+        // Spatial IO removed
+        return -1;
     }
 
     public AdvancementTriggers getAdvancementTriggers() {

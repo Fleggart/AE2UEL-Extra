@@ -25,6 +25,8 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 import appeng.api.exceptions.AppEngException;
 import appeng.api.movable.IMovableHandler;
@@ -47,7 +49,7 @@ public class MovableTileRegistry implements IMovableRegistry {
         }
 
         @Override
-        public void moveTile(TileEntity te) {
+        public void moveTile(TileEntity te, World world, BlockPos pos) {
             // No-op
         }
     };
@@ -59,7 +61,7 @@ public class MovableTileRegistry implements IMovableRegistry {
         }
 
         @Override
-        public void moveTile(TileEntity te) {
+        public void moveTile(TileEntity te, World world, BlockPos pos) {
             // No-op
         }
     };

@@ -49,7 +49,6 @@ import appeng.items.parts.FacadeRendering;
 import appeng.items.parts.ItemFacade;
 import appeng.items.storage.BasicItemStorageCell;
 import appeng.items.storage.ItemCreativeStorageCell;
-import appeng.items.storage.ItemSpatialStorageCell;
 import appeng.items.storage.ItemViewCell;
 import appeng.items.tools.*;
 import appeng.items.tools.powered.*;
@@ -100,10 +99,6 @@ public final class ApiItems implements IItems {
     private final IItemDefinition fluidCell4k;
     private final IItemDefinition fluidCell16k;
     private final IItemDefinition fluidCell64k;
-
-    private final IItemDefinition spatialCell2;
-    private final IItemDefinition spatialCell16;
-    private final IItemDefinition spatialCell128;
 
     private final IItemDefinition facade;
     private final IItemDefinition crystalSeed;
@@ -260,14 +255,6 @@ public final class ApiItems implements IItems {
                 .build();
         this.fluidCell64k = storageCells
                 .item("fluid_storage_cell_64k", () -> new BasicFluidStorageCell(MaterialType.FLUID_CELL64K_PART, 64))
-                .build();
-
-        FeatureFactory spatialCells = registry.features(AEFeature.SPATIAL_IO);
-        this.spatialCell2 = spatialCells.item("spatial_storage_cell_2_cubed", () -> new ItemSpatialStorageCell(2))
-                .build();
-        this.spatialCell16 = spatialCells.item("spatial_storage_cell_16_cubed", () -> new ItemSpatialStorageCell(16))
-                .build();
-        this.spatialCell128 = spatialCells.item("spatial_storage_cell_128_cubed", () -> new ItemSpatialStorageCell(128))
                 .build();
 
         this.facade = registry.item("facade", ItemFacade::new)
@@ -492,21 +479,6 @@ public final class ApiItems implements IItems {
     @Override
     public IItemDefinition fluidCell64k() {
         return this.fluidCell64k;
-    }
-
-    @Override
-    public IItemDefinition spatialCell2() {
-        return this.spatialCell2;
-    }
-
-    @Override
-    public IItemDefinition spatialCell16() {
-        return this.spatialCell16;
-    }
-
-    @Override
-    public IItemDefinition spatialCell128() {
-        return this.spatialCell128;
     }
 
     @Override

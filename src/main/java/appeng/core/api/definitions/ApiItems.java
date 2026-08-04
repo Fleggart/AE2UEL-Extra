@@ -70,7 +70,6 @@ public final class ApiItems implements IItems {
     private final IItemDefinition wirelessInterfaceTerminal;
     private final IItemDefinition wirelessFluidTerminal;
     private final IItemDefinition biometricCard;
-    private final IItemDefinition chargedStaff;
     private final IItemDefinition massCannon;
     private final IItemDefinition memoryCard;
     private final IItemDefinition networkTool;
@@ -150,8 +149,6 @@ public final class ApiItems implements IItems {
                 .item("wireless_interface_terminal", ToolWirelessInterfaceTerminal::new)
                 .addFeatures(AEFeature.WIRELESS_INTERFACE_TERMINAL).build();
 
-        this.chargedStaff = powerTools.item("charged_staff", ToolChargedStaff::new).addFeatures(AEFeature.CHARGED_STAFF)
-                .build();
         this.massCannon = powerTools.item("matter_cannon", ToolMatterCannon::new)
                 .addFeatures(AEFeature.MATTER_CANNON)
                 .dispenserBehavior(DispenserMatterCannon::new)
@@ -294,11 +291,6 @@ public final class ApiItems implements IItems {
     @Override
     public IItemDefinition biometricCard() {
         return this.biometricCard;
-    }
-
-    @Override
-    public IItemDefinition chargedStaff() {
-        return this.chargedStaff;
     }
 
     @Override

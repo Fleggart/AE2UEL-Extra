@@ -401,10 +401,6 @@ final class Registration {
                 .registerWirelessHandler((IWirelessTermHandler) terminal));
 
         // Charge Rates
-        items.chargedStaff().maybeItem()
-                .ifPresent(chargedStaff -> registries.charger().addChargeRate(chargedStaff, 320d));
-        items.portableCell().maybeItem()
-                .ifPresent(chargedStaff -> registries.charger().addChargeRate(chargedStaff, 800d));
         items.colorApplicator().maybeItem()
                 .ifPresent(colorApplicator -> registries.charger().addChargeRate(colorApplicator, 800d));
         items.wirelessTerminal().maybeItem().ifPresent(terminal -> registries.charger().addChargeRate(terminal, 8000d));

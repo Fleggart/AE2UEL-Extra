@@ -61,7 +61,6 @@ public enum AEFeature {
     QUARTZ_KNIFE("QuartzKnife", Constants.CATEGORY_TOOLS),
     QUARTZ_WRENCH("QuartzWrench", Constants.CATEGORY_TOOLS),
     ENTROPY_MANIPULATOR("EntropyManipulator", Constants.CATEGORY_TOOLS),
-    MATTER_CANNON("MatterCannon", Constants.CATEGORY_TOOLS),
     WIRELESS_ACCESS_TERMINAL("WirelessAccessTerminal", Constants.CATEGORY_TOOLS),
     WIRELESS_CRAFTING_TERMINAL("WirelessCraftingTerminal", Constants.CATEGORY_TOOLS),
     WIRELESS_PATTERN_TERMINAL("WirelessPatternTerminal", Constants.CATEGORY_TOOLS),
@@ -133,7 +132,6 @@ public enum AEFeature {
     P2P_TUNNEL_OPEN_COMPUTERS("P2PTunnelOpenComputers", Constants.CATEGORY_P2P_TUNNELS),
     P2P_TUNNEL_PRESSURE("P2PTunnelPressure", Constants.CATEGORY_P2P_TUNNELS),
 
-    MASS_CANNON_BLOCK_DAMAGE("MassCannonBlockDamage", Constants.CATEGORY_BLOCK_FEATURES),
     TINY_TNT_BLOCK_DAMAGE("TinyTNTBlockDamage", Constants.CATEGORY_BLOCK_FEATURES),
 
     FACADES("Facades", Constants.CATEGORY_FACADES),

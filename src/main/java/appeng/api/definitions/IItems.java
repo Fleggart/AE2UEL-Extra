@@ -29,29 +29,9 @@ import appeng.api.util.AEColoredItemDefinition;
  * A list of all items in AE
  */
 public interface IItems {
-    IItemDefinition certusQuartzAxe();
-
-    IItemDefinition certusQuartzHoe();
-
-    IItemDefinition certusQuartzShovel();
-
-    IItemDefinition certusQuartzPick();
-
-    IItemDefinition certusQuartzSword();
-
     IItemDefinition certusQuartzWrench();
 
     IItemDefinition certusQuartzKnife();
-
-    IItemDefinition netherQuartzAxe();
-
-    IItemDefinition netherQuartzHoe();
-
-    IItemDefinition netherQuartzShovel();
-
-    IItemDefinition netherQuartzPick();
-
-    IItemDefinition netherQuartzSword();
 
     IItemDefinition netherQuartzWrench();
 

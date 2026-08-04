@@ -69,7 +69,6 @@ public final class ApiItems implements IItems {
     private final IItemDefinition wirelessInterfaceTerminal;
     private final IItemDefinition wirelessFluidTerminal;
     private final IItemDefinition biometricCard;
-    private final IItemDefinition massCannon;
     private final IItemDefinition memoryCard;
     private final IItemDefinition networkTool;
     private final IItemDefinition portableCell;
@@ -286,11 +285,6 @@ public final class ApiItems implements IItems {
     @Override
     public IItemDefinition biometricCard() {
         return this.biometricCard;
-    }
-
-    @Override
-    public IItemDefinition massCannon() {
-        return this.massCannon;
     }
 
     @Override

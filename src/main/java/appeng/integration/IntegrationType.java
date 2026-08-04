@@ -18,7 +18,6 @@
 
 package appeng.integration;
 
-import appeng.integration.modules.crafttweaker.CTModule;
 import appeng.integration.modules.ic2.IC2Module;
 import appeng.integration.modules.inventorytweaks.InventoryTweaksModule;
 import appeng.integration.modules.jei.JEIModule;
@@ -71,14 +70,9 @@ public enum IntegrationType {
         }
     },
 
-    TESLA(IntegrationSide.BOTH, "Tesla", "tesla"),
+    TESLA(IntegrationSide.BOTH, "Tesla", "tesla");
 
-    CRAFTTWEAKER(IntegrationSide.BOTH, "CraftTweaker", "crafttweaker") {
-        @Override
-        public IIntegrationModule createInstance() {
-            return new CTModule();
-        }
-    };
+    // 移除了 CRAFTTWEAKER 枚举项
 
     public final IntegrationSide side;
     public final String dspName;

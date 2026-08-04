@@ -42,7 +42,6 @@ import appeng.fluids.items.BasicFluidStorageCell;
 import appeng.fluids.items.FluidDummyItem;
 import appeng.fluids.items.FluidDummyItemRendering;
 import appeng.hooks.DispenserBlockTool;
-import appeng.hooks.DispenserMatterCannon;
 import appeng.items.materials.MaterialType;
 import appeng.items.misc.*;
 import appeng.items.parts.FacadeRendering;
@@ -149,10 +148,6 @@ public final class ApiItems implements IItems {
                 .item("wireless_interface_terminal", ToolWirelessInterfaceTerminal::new)
                 .addFeatures(AEFeature.WIRELESS_INTERFACE_TERMINAL).build();
 
-        this.massCannon = powerTools.item("matter_cannon", ToolMatterCannon::new)
-                .addFeatures(AEFeature.MATTER_CANNON)
-                .dispenserBehavior(DispenserMatterCannon::new)
-                .build();
         this.portableCell = powerTools.item("portable_cell", ToolPortableCell::new)
                 .addFeatures(AEFeature.PORTABLE_CELL, AEFeature.STORAGE_CELLS).build();
         this.colorApplicator = powerTools.item("color_applicator", ToolColorApplicator::new)

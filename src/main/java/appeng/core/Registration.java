@@ -165,12 +165,6 @@ final class Registration {
         StorageCells.addCellGuiHandler(new BasicItemCellGuiHandler());
         StorageCells.addCellGuiHandler(new BasicFluidCellGuiHandler());
 
-        api.definitions().materials().matterBall().maybeStack(1).ifPresent(ammoStack -> {
-            final double weight = 32;
-
-            registries.matterCannon().registerAmmo(ammoStack, weight);
-        });
-
         PartItemPredicate.register();
         Stats.register();
         this.advancementTriggers = new AdvancementTriggers(new CriterionTrigggerRegistry());
@@ -370,11 +364,6 @@ final class Registration {
         Upgrades.INVERTER.registerItem(parts.formationPlane(), 1);
         Upgrades.CAPACITY.registerItem(parts.formationPlane(), 5);
 
-        // Matter Cannon
-        Upgrades.FUZZY.registerItem(items.massCannon(), 1);
-        Upgrades.INVERTER.registerItem(items.massCannon(), 1);
-        Upgrades.SPEED.registerItem(items.massCannon(), 4);
-
         // Molecular Assembler
         Upgrades.SPEED.registerItem(blocks.molecularAssembler(), 5);
 
@@ -404,7 +393,6 @@ final class Registration {
         items.colorApplicator().maybeItem()
                 .ifPresent(colorApplicator -> registries.charger().addChargeRate(colorApplicator, 800d));
         items.wirelessTerminal().maybeItem().ifPresent(terminal -> registries.charger().addChargeRate(terminal, 8000d));
-        items.massCannon().maybeItem().ifPresent(massCannon -> registries.charger().addChargeRate(massCannon, 8000d));
         blocks.energyCell().maybeItem().ifPresent(cell -> registries.charger().addChargeRate(cell, 8000d));
         blocks.energyCellDense().maybeItem().ifPresent(cell -> registries.charger().addChargeRate(cell, 16000d));
 

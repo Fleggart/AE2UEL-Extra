@@ -54,7 +54,6 @@ public class IMCHandler {
         this.processors.put("blacklist-block-spatial", new IMCBlackListSpatial());
         this.processors.put("whitelist-spatial", new IMCSpatial());
         this.processors.put("add-grindable", new IMCGrinder());
-        this.processors.put("add-mattercannon-ammo", new IMCMatterCannon());
 
         for (final TunnelType type : TunnelType.values()) {
             this.processors.put("add-p2p-attunement-" + type.name().replace('_', '-').toLowerCase(Locale.ENGLISH),

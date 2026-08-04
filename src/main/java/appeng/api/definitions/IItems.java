@@ -49,8 +49,6 @@ public interface IItems {
 
     IItemDefinition biometricCard();
 
-    IItemDefinition massCannon();
-
     IItemDefinition memoryCard();
 
     IItemDefinition networkTool();

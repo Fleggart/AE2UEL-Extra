@@ -83,7 +83,6 @@ import appeng.tile.misc.TileCellWorkbench;
 import appeng.tile.misc.TileCondenser;
 import appeng.tile.misc.TileInscriber;
 import appeng.tile.misc.TileSecurityStation;
-import appeng.tile.misc.TileVibrationChamber;
 import appeng.tile.networking.TileWireless;
 import appeng.tile.qnb.TileQuantumBridge;
 import appeng.tile.spatial.TileSpatialIOPort;
@@ -130,8 +129,6 @@ public enum GuiBridge implements IGuiHandler {
     GUI_QUARTZ_KNIFE(ContainerQuartzKnife.class, QuartzKnifeObj.class, GuiHostType.ITEM, null),
 
     GUI_DRIVE(ContainerDrive.class, TileDrive.class, GuiHostType.WORLD, SecurityPermissions.BUILD),
-
-    GUI_VIBRATION_CHAMBER(ContainerVibrationChamber.class, TileVibrationChamber.class, GuiHostType.WORLD, null),
 
     GUI_CONDENSER(ContainerCondenser.class, TileCondenser.class, GuiHostType.WORLD, null),
 

@@ -60,7 +60,6 @@ public enum AEFeature {
     QUARTZ_AXE("QuartzAxe", Constants.CATEGORY_TOOLS),
     QUARTZ_KNIFE("QuartzKnife", Constants.CATEGORY_TOOLS),
     QUARTZ_WRENCH("QuartzWrench", Constants.CATEGORY_TOOLS),
-    CHARGED_STAFF("ChargedStaff", Constants.CATEGORY_TOOLS),
     ENTROPY_MANIPULATOR("EntropyManipulator", Constants.CATEGORY_TOOLS),
     MATTER_CANNON("MatterCannon", Constants.CATEGORY_TOOLS),
     WIRELESS_ACCESS_TERMINAL("WirelessAccessTerminal", Constants.CATEGORY_TOOLS),

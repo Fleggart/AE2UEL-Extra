@@ -79,11 +79,6 @@ public interface IRegistryContainer {
     IP2PTunnelRegistry p2pTunnel();
 
     /**
-     * get access to the ammo registry.
-     */
-    IMatterCannonAmmoRegistry matterCannon();
-
-    /**
      * get access to the player registry
      */
     IPlayerRegistry players();

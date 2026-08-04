@@ -45,8 +45,6 @@ public class AppEngPacketHandlerBase {
 
         PACKET_LIGHTNING(PacketLightning.class),
 
-        PACKET_MATTER_CANNON(PacketMatterCannon.class),
-
         PACKET_MOCK_EXPLOSION(PacketMockExplosion.class),
 
         PACKET_VALUE_CONFIG(PacketValueConfig.class),

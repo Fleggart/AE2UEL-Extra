@@ -64,7 +64,6 @@ public final class ApiItems implements IItems {
     private final IItemDefinition netherQuartzWrench;
     private final IItemDefinition netherQuartzKnife;
 
-
     private final IItemDefinition wirelessTerminal;
     private final IItemDefinition wirelessCraftingTerminal;
     private final IItemDefinition wirelessPatternTerminal;
@@ -266,8 +265,6 @@ public final class ApiItems implements IItems {
     public IItemDefinition netherQuartzKnife() {
         return this.netherQuartzKnife;
     }
-
-
 
     @Override
     public IItemDefinition wirelessTerminal() {

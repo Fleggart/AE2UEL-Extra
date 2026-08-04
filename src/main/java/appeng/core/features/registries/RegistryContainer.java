@@ -44,7 +44,6 @@ public class RegistryContainer implements IRegistryContainer {
     private final IGridCacheRegistry gridCache = new GridCacheRegistry();
     private final IP2PTunnelRegistry p2pTunnel = new P2PTunnelRegistry();
     private final IMovableRegistry movable = new MovableTileRegistry();
-    private final IMatterCannonAmmoRegistry matterCannonReg = new MatterCannonAmmoRegistry();
     private final IPlayerRegistry playerRegistry = new PlayerRegistry();
     private final IRecipeHandlerRegistry recipeReg = new RecipeHandlerRegistry();
     private final IPartModels partModels = new PartModels();
@@ -87,11 +86,6 @@ public class RegistryContainer implements IRegistryContainer {
     @Override
     public IP2PTunnelRegistry p2pTunnel() {
         return this.p2pTunnel;
-    }
-
-    @Override
-    public IMatterCannonAmmoRegistry matterCannon() {
-        return this.matterCannonReg;
     }
 
     @Override

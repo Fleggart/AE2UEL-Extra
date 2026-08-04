@@ -139,7 +139,6 @@ public final class ApiBlocks implements IBlocks {
     private final ITileDefinition iOPort;
     private final ITileDefinition condenser;
     private final ITileDefinition energyAcceptor;
-    private final ITileDefinition vibrationChamber;
     private final ITileDefinition quartzGrowthAccelerator;
     private final ITileDefinition energyCell;
     private final ITileDefinition energyCellDense;
@@ -363,10 +362,6 @@ public final class ApiBlocks implements IBlocks {
         this.energyAcceptor = registry.block("energy_acceptor", BlockEnergyAcceptor::new)
                 .features(AEFeature.ENERGY_ACCEPTOR)
                 .tileEntity(new TileEntityDefinition(TileEnergyAcceptor.class))
-                .build();
-        this.vibrationChamber = registry.block("vibration_chamber", BlockVibrationChamber::new)
-                .features(AEFeature.POWER_GEN)
-                .tileEntity(new TileEntityDefinition(TileVibrationChamber.class))
                 .build();
         this.quartzGrowthAccelerator = registry.block("quartz_growth_accelerator", BlockQuartzGrowthAccelerator::new)
                 .tileEntity(new TileEntityDefinition(TileQuartzGrowthAccelerator.class))
@@ -854,11 +849,6 @@ public final class ApiBlocks implements IBlocks {
     @Override
     public ITileDefinition energyAcceptor() {
         return this.energyAcceptor;
-    }
-
-    @Override
-    public ITileDefinition vibrationChamber() {
-        return this.vibrationChamber;
     }
 
     @Override

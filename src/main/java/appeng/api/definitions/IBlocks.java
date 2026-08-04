@@ -156,8 +156,6 @@ public interface IBlocks {
 
     ITileDefinition energyAcceptor();
 
-    // ITileDefinition vibrationChamber();  // 已删除
-
     ITileDefinition quartzGrowthAccelerator();
 
     ITileDefinition energyCell();

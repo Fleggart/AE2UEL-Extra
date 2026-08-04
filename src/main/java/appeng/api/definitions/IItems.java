@@ -49,8 +49,6 @@ public interface IItems {
 
     IItemDefinition biometricCard();
 
-    IItemDefinition chargedStaff();
-
     IItemDefinition massCannon();
 
     IItemDefinition memoryCard();
